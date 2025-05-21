@@ -95,11 +95,13 @@ for trials in range(10):
     random.shuffle(entries)
     #train
     avg_loss = network.train(entries, data, epochs=20)
+    #plot the average loss each epoch, for all epoch in the training process in one trial
     plt.figure()
     plt.plot(avg_loss)
     plt.title(f'losses during epochs for trial {trials + 1}')
     plt.ylabel("Average loss")
     plt.xlabel("Epochs #")
+    
     #test
     total = 0
     correct = 0
@@ -113,6 +115,7 @@ for trials in range(10):
     accuracy.append(correct / total)
 
 plt.figure()
+#plot accuracy after going through the tesing data
 plt.title("Accuracy for each trials of training")
 plt.plot(accuracy)
 plt.ylabel("Accuracy")
